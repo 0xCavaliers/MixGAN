@@ -1,7 +1,5 @@
 # MixGAN: A Hybrid Semi-Supervised and Generative Approach for DDoS Detection in Cloud-Integrated IoT Networks
 
-## English Introduction
-
 MixGAN is a novel framework for network anomaly detection that combines Generative Adversarial Networks (GANs) with semi-supervised learning techniques. It leverages synthetic data generation to improve the detection performance of network intrusion detection systems, particularly for imbalanced datasets where attack samples are often scarce.
 
 ### Key Features
