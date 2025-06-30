@@ -9,7 +9,6 @@ def pick_node(node_range):
     return random.randint(*node_range)
 
 def get_port(service):
-    # 可根据service字段自定义端口映射
     if service == 'http':
         return 80
     elif service == 'ftp':
@@ -19,11 +18,10 @@ def get_port(service):
     elif service == 'domain_u':
         return 53
     else:
-        return 9999  # 默认端口
+        return 9999 # default port
 
 with open('iot-test.csv') as f, open('ns3_events_full.txt', 'w', newline='') as out:
     reader = csv.DictReader(f)
-    # 新的字段顺序：仿真字段 + 原始字段
     sim_fields = ['src', 'dst', 'start', 'duration', 'size', 'proto', 'port']
     all_fields = sim_fields + reader.fieldnames
     writer = csv.DictWriter(out, fieldnames=all_fields)
@@ -37,7 +35,7 @@ with open('iot-test.csv') as f, open('ns3_events_full.txt', 'w', newline='') as 
         else:
             src = pick_node(ATTACK_NODE_RANGE)
         dst = AP_NODE
-        start = 1  # 可根据需要调整
+        start = 1 # change as you like
         duration = int(row['Duration']) if row['Duration'] else 1
         size = int(row['Src Bytes']) if row['Src Bytes'] else 64
         port = get_port(row['Service'])
